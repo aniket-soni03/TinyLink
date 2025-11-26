@@ -1,188 +1,185 @@
-# TinyLink 🚀
+# 🔗 TinyLink – URL Shortener (Spring Boot + React)
 
-A URL shortener web app similar to Bit.ly built with **React** (frontend) and **Spring Boot** (backend) with **MySQL** as the database. Users can shorten URLs, create custom codes, track click statistics, and manage links.
-
----
-
-## 📦 Features
-
-* **Create Short Links**: Generate short URLs from long URLs.
-* **Custom Codes**: Optional custom short codes, globally unique.
-* **Redirect**: Visiting `/code` performs a `302 redirect`.
-* **Click Tracking**: Increment click count and update last clicked timestamp.
-* **Delete Links**: Remove links, stopping future redirects (`404`).
-* **Dashboard**: View all links with stats and actions.
-* **Stats Page**: View details of a single link.
-* **Health Check**: `/healthz` endpoint returns server status.
-* **User Feedback**: Toast notifications using `react-toastify`.
-* **Responsive UI**: Clean layout, animations, and friendly UX.
+A clean, production-ready URL Shortener built using **Spring Boot** (Backend) and **React** (Frontend). Deployed on **Railway** (Backend + MySQL DB) and **Vercel** (Frontend). 🚀
 
 ---
 
-## 🛠 Tech Stack
+## 🌍 Live Demo
 
-* **Frontend**: React, React Router, react-hook-form, react-toastify
-* **Backend**: Spring Boot, Spring Data JPA
-* **Database**: MySQL
-* **Styling**: Custom CSS + animations
-* **Build & Dev Tools**: Vite, Maven
+🔗 **Frontend Live URL:** [https://tiny-link-aniket.vercel.app](https://tiny-link-aniket.vercel.app)
 
 ---
 
-## 📁 Project Structure
+## 📂 GitHub Repositories
 
-```
-src/
-│
-├── assets/           # Images and icons
-├── styles/           # Individual CSS files per component/page
-├── routes/           # React Router setup (MyRoutes.jsx)
-├── components/       # Reusable components (Header, Footer, CopyButton, Modal, LinkTable, AddLinkForm)
-├── pages/            # Dashboard, Stats, NotFound pages
-├── services/         # API service logic merged in components
-├── App.jsx
-├── main.jsx
-└── index.css
-```
+* **FullStack Repo:** [https://github.com/aniket-soni03/TinyLink.git](https://github.com/aniket-soni03/TinyLink.git)
 
-Backend Spring Boot structure:
+---
+
+## 🖥️ Backend — Spring Boot (Folder Structure)
 
 ```
 src/main/java/com/url_shortner/
 │
-├── controller/       # LinkController, RedirectController, HealthController
-├── service/          # LinkService, RedirectService
-├── dao/              # LinkDao
-├── repository/       # LinkRepository
-├── dto/              # LinkRequestDto, LinkResponseDto, StatsResponseDto
-├── exception/        # Custom exceptions & global handler
-├── entity/           # Link entity
-├── config/           # AppConfig
+├── controller/
+│   ├── LinkController.java
+│   ├── RedirectController.java
+│   └── HealthController.java
+│
+├── service/
+│   ├── LinkService.java
+│   └── RedirectService.java
+│
+├── dao/
+│   └── LinkDao.java
+│
+├── repository/
+│   └── LinkRepo.java
+│
+├── dto/
+│   ├── LinkRequestDto.java
+│   ├── LinkResponseDto.java
+│   └── StatsResponseDto.java
+│
+├── exception/
+│   ├── CodeAlreadyExistsException.java
+│   ├── LinkNotFoundException.java
+│   ├── InvalidUrlException.java
+│   └── GlobalExceptionHandler.java
+│
+├── entity/
+│   └── Link.java
+│
+├── config/
+│   └── CorsConfig.java
+│
 └── TinyLinkApplication.java
 ```
 
 ---
 
-## 🏃‍♂️ Getting Started
-
-### Prerequisites
-
-* Node.js >= 18
-* Java 17+
-* Maven
-* MySQL database
-
-### Backend Setup
-
-1. Clone the repo and navigate to backend:
-
-   ```bash
-   cd tinylink-backend
-   ```
-2. Update `application.properties` or `.env` with your MySQL credentials.
-3. Build and run:
-
-   ```bash
-   mvn spring-boot:run
-   ```
-
-   Backend will run on `http://localhost:8080`
-
-### Frontend Setup
-
-1. Navigate to frontend folder:
-
-   ```bash
-   cd tinylink-frontend
-   ```
-2. Install dependencies:
-
-   ```bash
-   npm install
-   ```
-3. Run dev server:
-
-   ```bash
-   npm run dev
-   ```
-
-   Frontend will run on `http://localhost:5173`
-
-### Build & Deploy
-
-* Backend: `mvn clean package`
-* Frontend: `npm run build`
-* Deploy on Vercel / Railway / Render + MySQL or Postgres
-
----
-
-## 📌 API Endpoints
-
-| Method | Path               | Description                                        |
-| ------ | ------------------ | -------------------------------------------------- |
-| GET    | `/healthz`         | Returns server status `{ ok: true, version: 1.0 }` |
-| POST   | `/api/links`       | Create a new link (409 if code exists)             |
-| GET    | `/api/links`       | List all links                                     |
-| GET    | `/api/links/:code` | Stats for one code                                 |
-| DELETE | `/api/links/:code` | Delete link                                        |
-| GET    | `/:code`           | Redirect to original URL (302 or 404)              |
-
----
-
-## 🎨 Frontend Pages
-
-* **Dashboard `/`**: Add new link, view all links, delete links.
-* **Stats `/code/:code`**: View click count, last clicked timestamp, original URL.
-* **Redirect `/:code`**: Redirects to original URL.
-* **404**: Page not found
-
----
-
-## ✨ UX & UI
-
-* Clean, minimal design with responsive layout.
-* Loading, empty, success, and error states.
-* Modal popup when a short URL is generated with Copy & Close buttons.
-* Toast notifications for user feedback.
-* Animations for modal and table actions.
-
----
-
-## ⚙️ Environment Variables
-
-Create a `.env.example`:
+## 🎨 Frontend — React (Folder Structure)
 
 ```
-REACT_APP_BASE_URL=http://localhost:8080
-DB_URL=jdbc:mysql://localhost:3306/tinylink
-DB_USER=root
-DB_PASSWORD=yourpassword
+src/
+│
+├── assets/
+│   ├── logo.png
+│   └── copy-icon.svg
+│
+├── styles/
+│   ├── App.css
+│   ├── Dashboard.css
+│   ├── Stats.css
+│   ├── AddLinkForm.css
+│   ├── LinkTable.css
+│   └── Modal.css
+│
+├── routes/
+│   └── MyRoutes.jsx
+│
+├── components/
+│   ├── Header.jsx
+│   ├── Footer.jsx
+│   ├── AddLinkForm.jsx
+│   ├── LinkTable.jsx
+│   ├── Modal.jsx
+│   └── CopyButton.jsx
+│
+├── pages/
+│   ├── Dashboard.jsx
+│   ├── Stats.jsx
+│   └── NotFound.jsx
+│
+├── App.jsx
+├── main.jsx
+└── index.css
 ```
 
 ---
 
-## 📹 Demo
+## 🛠️ Tech Stack
 
-* [Demo Video Link](#) (replace with your video explaining the project)
+**Backend:**
 
----
+* Spring Boot (REST API)
+* **MySQL (Railway)**
+* Spring Data JPA + Hibernate
+* Custom Exception Handling
+* CORS Config to allow Vercel
 
-## 📚 Notes
+**Frontend:**
 
-* All endpoints and field names strictly follow PDF spec for autograding.
-* Custom codes are validated `[A-Za-z0-9]{6,8}`.
-* Modal popup and toast notifications provide a polished UX.
-* Fully responsive and animated design.
-
----
-
-## 💡 Future Improvements
-
-* User authentication & personal link management.
-* Pagination for dashboard table.
-* Optional search/filter by code or URL.
-* Analytics dashboard with charts.
+* React
+* Custom CSS
+* React Router
+* Responsive UI
 
 ---
 
-Made with ❤️ by **Your Name**
+## 🔥 Core Features
+
+* Create short URLs (with optional custom code)
+* 302 redirect (`/:code`)
+* Click tracking (total + last clicked)
+* Delete links
+* Dashboard `/`
+* Stats page `/code/:code`
+* Health check `/healthz`
+
+---
+
+## 📌 Environment Variables
+
+### Backend — `application.properties`
+
+```properties
+spring.application.name=TinyLink-Backend
+
+spring.datasource.url=${DB_URL}
+spring.datasource.username=${DB_USERNAME}
+spring.datasource.password=${DB_PASSWORD}
+server.port=${PORT:8080}
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+```
+
+### Railway Environment Variables
+
+* `DB_URL` — MySQL JDBC URL
+* `DB_USERNAME`
+* `DB_PASSWORD`
+* `SPRING_PROFILES_ACTIVE` - deploy  (MUST NEED TO CREATE)
+
+---
+
+## 🧾 API Endpoints
+
+* **POST** `/api/links` — Create link
+* **GET** `/api/links` — List all
+* **GET** `/api/links/:code` — Stats for code
+* **DELETE** `/api/links/:code` — Delete
+* **GET** `/:code` — Redirect (302)
+* **GET** `/healthz` — Health check
+
+---
+
+## 🚀 Deployment Notes
+
+### Backend (Railway)
+
+* Create a **MySQL database** inside Railway
+* Copy credentials into ENV vars
+* Deploy via GitHub → Railway auto-deploy
+
+### Frontend (Vercel)
+
+* Connect GitHub → Auto deploy
+* Add ENV var `VITE_API_BASE_URL`
+
+---
+
+## 💙 Author
+
+Made with ❤️ by **Aniket Soni**
