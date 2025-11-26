@@ -14,7 +14,7 @@ const Stats = () => {
     const fetchStats = async () => {
       setLoading(true);
       try {
-        const res = await fetch(`http://localhost:8080/api/links/${code}`);
+        const res = await fetch(`https://tinylink-aniket.up.railway.app/api/links/${code}`);
         if (res.ok) {
           const data = await res.json();
           setLink(data);

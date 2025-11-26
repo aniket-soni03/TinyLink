@@ -3,7 +3,7 @@ import "../styles/Modal.css";
 import CopyButton from "./CopyButton";
 
 const Modal = ({ data, onClose }) => {
-  const shortUrl = `http://localhost:8080/${data.code}`;
+  const shortUrl = `https://tinylink-aniket.up.railway.app/${data.code}`;
 
   return (
     <div className="modal-overlay" id="modal-overlay">

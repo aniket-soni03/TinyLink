@@ -12,7 +12,7 @@ const LinkTable = ({ refreshTrigger }) => {
   const fetchLinks = async () => {
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:8080/api/links");
+      const res = await fetch("https://tinylink-aniket.up.railway.app/api/links");
       const data = await res.json();
       setLinks(data);
       setFilteredLinks(data);
@@ -27,7 +27,7 @@ const LinkTable = ({ refreshTrigger }) => {
 
   const deleteLink = async (code) => {
     try {
-      const res = await fetch(`http://localhost:8080/api/links/${code}`, { method: "DELETE" });
+      const res = await fetch(`https://tinylink-aniket.up.railway.app/api/links/${code}`, { method: "DELETE" });
       if (res.ok) {
         toast.success("Link deleted successfully");
         fetchLinks();
@@ -87,7 +87,7 @@ const LinkTable = ({ refreshTrigger }) => {
                 <td className="link-table-cell">{link.lastClicked ? new Date(link.lastClicked).toLocaleString() : "Never"}</td>
                 <td className="link-table-cell link-actions">
                   <button className="delete-btn" onClick={() => deleteLink(link.code)}>Delete</button>
-                  <CopyButton text={`http://localhost:8080/${link.code}`} />
+                  <CopyButton text={`https://tinylink-aniket.up.railway.app/${link.code}`} />
                 </td>
               </tr>
             ))}

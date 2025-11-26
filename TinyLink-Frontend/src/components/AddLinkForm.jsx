@@ -14,7 +14,7 @@ const AddLinkForm = ({ onSuccess }) => {
   const onSubmit = async (data) => {
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:8080/api/links", {
+      const res = await fetch("https://tinylink-aniket.up.railway.app/api/links", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ targetUrl: data.targetUrl, code: data.code || "" }),
