@@ -1,0 +1,38 @@
+/* Full-width container */
+.footer-container {
+  width: 100%;
+  background-color: #f0f2ff;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #dbe1ff;
+}
+
+/* Inner footer */
+.footer {
+  max-width: 960px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Text style */
+.footer-text {
+  font-size: 15px;
+  color: #5a6b9f;
+  margin: 0;
+  letter-spacing: 0.5px;
+  transition: 0.2s ease-in-out;
+}
+
+/* Soft hover polish */
+.footer-text:hover {
+  color: #2d3e70;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .footer-text {
+    font-size: 13px;
+  }
+}

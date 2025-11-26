@@ -1,0 +1,61 @@
+/* Outer wrapper for perfect centering */
+.notfound-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  background: #f7f8fc;
+}
+
+/* Page box */
+.notfound-page {
+  width: 100%;
+  max-width: 520px;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0px 4px 18px rgba(0,0,0,0.08);
+  animation: fadeIn 0.4s ease;
+}
+
+/* Content alignment */
+.notfound-content {
+  text-align: center;
+}
+
+/* Title */
+.notfound-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #2d3e50;
+  margin-bottom: 12px;
+}
+
+/* Text */
+.notfound-text {
+  font-size: 17px;
+  color: #55667a;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 500px) {
+  .notfound-page {
+    padding: 30px;
+  }
+
+  .notfound-title {
+    font-size: 26px;
+  }
+
+  .notfound-text {
+    font-size: 16px;
+  }
+}

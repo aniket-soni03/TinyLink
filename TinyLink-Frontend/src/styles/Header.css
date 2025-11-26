@@ -1,0 +1,38 @@
+/* Header container for full-width responsiveness */
+.header-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: #4d7cff;
+  padding: 12px 0;
+}
+
+/* Header */
+.header {
+  width: 100%;
+  max-width: 960px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Logo styling */
+.header-logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  letter-spacing: 1px;
+  transition: 0.25s ease;
+}
+
+.header-logo:hover {
+  color: #dce1ff;
+}
+
+/* RESPONSIVE */
+@media (max-width: 500px) {
+  .header-logo {
+    font-size: 22px;
+  }
+}

@@ -1,0 +1,44 @@
+/* App.css */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #f5f6fa;
+    color: #2f3640;
+}
+
+/* ---- Important Fix for Sticky Footer ---- */
+.app-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* All page content should expand to push footer down */
+main {
+    flex: 1;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+/* Toastify overrides */
+.Toastify__toast--success {
+    background-color: #4cd137 !important;
+    color: #fff !important;
+}
+.Toastify__toast--error {
+    background-color: #e84118 !important;
+    color: #fff !important;
+}

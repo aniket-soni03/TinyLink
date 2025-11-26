@@ -1,0 +1,86 @@
+/* Outer container for centering */
+.stats-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 25px;
+  background: #f8f9fc;
+  min-height: calc(100vh - 80px);
+}
+
+/* Stats page card */
+.stats-page {
+  width: 100%;
+  max-width: 600px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 30px;
+  box-shadow: 0px 4px 16px rgba(0,0,0,0.08);
+  animation: fadeIn 0.4s ease;
+}
+
+/* Main content wrapper */
+.stats-content {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Title */
+.stats-title {
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2d3e50;
+}
+
+/* Individual stat items */
+.stats-item {
+  font-size: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  color: #3b4a5a;
+}
+
+/* Labels */
+.stats-label {
+  font-weight: 600;
+  color: #1d2939;
+}
+
+/* Values */
+.stats-value {
+  font-weight: 400;
+  color: #555e6c;
+  word-break: break-word;
+}
+
+/* Loading / Error states */
+.stats-loading, .stats-error {
+  text-align: center;
+  font-size: 18px;
+  color: #6b7280;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 500px) {
+  .stats-page {
+    padding: 22px;
+  }
+
+  .stats-title {
+    font-size: 24px;
+  }
+
+  .stats-item {
+    font-size: 15px;
+  }
+}
