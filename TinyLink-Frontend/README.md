@@ -1,25 +1,59 @@
+<<<<<<< HEAD
 # 🎨 TinyLink Frontend – React
 
 A clean and responsive **React** frontend for the TinyLink URL Shortener project. Fully optimized and deployed on **Vercel**. 🚀
+=======
+# TinyLink Frontend
+
+A clean and responsive React-based frontend for generating and managing short URLs with real-time validations, copy-to-clipboard, toast notifications, and a modern UI.
+>>>>>>> a044e50 (properties file updated)
 
 ---
 
-## 🌍 Live Demo
+## 🚀 Live Demo
 
-🔗 **Frontend Live URL:** [https://tiny-link-aniket.vercel.app](https://tiny-link-aniket.vercel.app)
+🔗 **Live URL:** `https://tiny-link-aniket.vercel.app`
 
 ---
 
+<<<<<<< HEAD
 ## 📂 Folder Structure
+=======
+---
+
+## 🛠️ Tech Stack
+
+* **React.js** (Vite or CRA)
+* **Fetch** for API communication
+* **React-Toastify** for notifications
+* **CSS Modules / Global CSS** for styling
+* **Deployed on Vercel**
+
+---
+
+## ✨ Features
+
+* Simple and attractive UI
+* URL validation
+* Copy short URL with one click
+* Beautiful modal UI
+* Toast alerts for success & errors
+* Fully responsive design
+* Integrated with backend API
+
+---
+
+## 📁 Project Structure
+>>>>>>> a044e50 (properties file updated)
 
 ```
 src/
 │
-├── assets/
+├── assets/                  # Images, icons, logos
 │   ├── logo.png
 │   └── copy-icon.svg
 │
-├── styles/
+├── styles/                  # CSS for each component/page
 │   ├── App.css
 │   ├── Dashboard.css
 │   ├── Stats.css
@@ -27,10 +61,10 @@ src/
 │   ├── LinkTable.css
 │   └── Modal.css
 │
-├── routes/
+├── routes/                  # React Router setup
 │   └── MyRoutes.jsx
 │
-├── components/
+├── components/              # Reusable components
 │   ├── Header.jsx
 │   ├── Footer.jsx
 │   ├── AddLinkForm.jsx
@@ -38,18 +72,41 @@ src/
 │   ├── Modal.jsx
 │   └── CopyButton.jsx
 │
-├── pages/
+├── pages/                   # Main pages
 │   ├── Dashboard.jsx
 │   ├── Stats.jsx
 │   └── NotFound.jsx
 │
-├── App.jsx
-├── main.jsx
-└── index.css
+├── App.jsx                  # Main App container
+├── main.jsx                 # ReactDOM render
+└── index.css                # Global styles
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1️⃣ Clone the Project
+
+```bash
+git clone <your-frontend-repo-url>
+cd project-folder
+```
+
+### 2️⃣ Install Dependencies
+
+```bash
+npm install
+```
+
+### 4️⃣ Start Development Server
+
+```bash
+npm run dev
 ```
 
 ---
 
+<<<<<<< HEAD
 ## 🌟 Features
 
 * Beautiful and responsive UI
@@ -140,3 +197,30 @@ Frontend interacts with the backend:
 ## 💙 Author
 
 Made with ❤️ by **Aniket Soni**
+=======
+## 🚀 Deployment (Vercel)
+
+1. Push your project to GitHub
+2. Go to **Vercel → New Project**
+3. Import GitHub repo
+4. Select **Framework: React**
+5. Set **Environment Variable** (if needed) e.g. `VITE_BACKEND_URL`
+6. Deploy
+
+---
+
+## 🔗 API Endpoints Used
+
+* `POST /create` – Create short URL
+* `GET /{code}` – Redirect to original URL
+* `GET /health` – Check server status
+
+---
+
+---
+
+## 🙌 Author
+
+**Aniket Soni**
+
+>>>>>>> a044e50 (properties file updated)
