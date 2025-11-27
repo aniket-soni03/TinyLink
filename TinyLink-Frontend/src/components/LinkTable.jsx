@@ -53,6 +53,7 @@ const LinkTable = ({ refreshTrigger }) => {
   }, [search, links]);
 
   if (loading) return <p className="link-loading">Loading...</p>;
+  if (!filteredLinks.length && !search) return <p className="link-empty">No links found.</p>;
 
   return (
     <div className="link-table-wrapper">
@@ -67,35 +68,31 @@ const LinkTable = ({ refreshTrigger }) => {
         />
       </div>
       <div className="link-table-container" id="link-table-container">
-        {filteredLinks.length === 0 ? (
-          <p className="link-empty">No links found.</p>
-        ) : (
-          <table className="link-table" id="link-table">
-            <thead>
-              <tr>
-                <th>Code</th>
-                <th>Original URL</th>
-                <th>Clicks</th>
-                <th>Last Clicked</th>
-                <th>Actions</th>
+        <table className="link-table" id="link-table">
+          <thead>
+            <tr>
+              <th>Code</th>
+              <th>Original URL</th>
+              <th>Clicks</th>
+              <th>Last Clicked</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredLinks.map(link => (
+              <tr key={link.code} className="link-table-row">
+                <td className="link-table-cell">{link.code}</td>
+                <td className="link-table-cell" title={link.targetUrl}>{link.targetUrl}</td>
+                <td className="link-table-cell">{link.clickCount}</td>
+                <td className="link-table-cell">{link.lastClicked ? new Date(link.lastClicked).toLocaleString() : "Never"}</td>
+                <td className="link-table-cell link-actions">
+                  <button className="delete-btn" onClick={() => deleteLink(link.code)}>Delete</button>
+                  <CopyButton text={`https://tinylink-aniket.up.railway.app/${link.code}`} />
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {filteredLinks.map(link => (
-                <tr key={link.code} className="link-table-row">
-                  <td className="link-table-cell">{link.code}</td>
-                  <td className="link-table-cell" title={link.targetUrl}>{link.targetUrl}</td>
-                  <td className="link-table-cell">{link.clickCount}</td>
-                  <td className="link-table-cell">{link.lastClicked ? new Date(link.lastClicked).toLocaleString() : "Never"}</td>
-                  <td className="link-table-cell link-actions">
-                    <button className="delete-btn" onClick={() => deleteLink(link.code)}>Delete</button>
-                    <CopyButton text={`https://tinylink-aniket.up.railway.app/${link.code}`} />
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
