@@ -1,6 +1,6 @@
-# 🔗 TinyLink – URL Shortener (Spring Boot + React)
+# 🎨 TinyLink Frontend – React
 
-A clean, production-ready URL Shortener built using **Spring Boot** (Backend) and **React** (Frontend). Deployed on **Railway** (Backend + MySQL DB) and **Vercel** (Frontend). 🚀
+A clean and responsive **React** frontend for the TinyLink URL Shortener project. Fully optimized and deployed on **Vercel**. 🚀
 
 ---
 
@@ -10,55 +10,7 @@ A clean, production-ready URL Shortener built using **Spring Boot** (Backend) an
 
 ---
 
-## 📂 GitHub Repositories
-
-* **FullStack Repo:** [https://github.com/aniket-soni03/TinyLink.git](https://github.com/aniket-soni03/TinyLink.git)
-
----
-
-## 🖥️ Backend — Spring Boot (Folder Structure)
-
-```
-src/main/java/com/url_shortner/
-│
-├── controller/
-│   ├── LinkController.java
-│   ├── RedirectController.java
-│   └── HealthController.java
-│
-├── service/
-│   ├── LinkService.java
-│   └── RedirectService.java
-│
-├── dao/
-│   └── LinkDao.java
-│
-├── repository/
-│   └── LinkRepo.java
-│
-├── dto/
-│   ├── LinkRequestDto.java
-│   ├── LinkResponseDto.java
-│   └── StatsResponseDto.java
-│
-├── exception/
-│   ├── CodeAlreadyExistsException.java
-│   ├── LinkNotFoundException.java
-│   ├── InvalidUrlException.java
-│   └── GlobalExceptionHandler.java
-│
-├── entity/
-│   └── Link.java
-│
-├── config/
-│   └── CorsConfig.java
-│
-└── TinyLinkApplication.java
-```
-
----
-
-## 🎨 Frontend — React (Folder Structure)
+## 📂 Folder Structure
 
 ```
 src/
@@ -98,85 +50,90 @@ src/
 
 ---
 
+## 🌟 Features
+
+* Beautiful and responsive UI
+* Add new short links with validation
+* Copy-to-clipboard functionality
+* View full link table with search & filter
+* Stats page with total clicks and last clicked time
+* 404 handling & clean routing
+* Smooth UX with modal interactions
+
+---
+
 ## 🛠️ Tech Stack
 
-**Backend:**
-
-* Spring Boot (REST API)
-* **MySQL (Railway)**
-* Spring Data JPA + Hibernate
-* Custom Exception Handling
-* CORS Config to allow Vercel
-
-**Frontend:**
-
-* React
-* Custom CSS
-* React Router
-* Responsive UI
+* **React**
+* **React Router**
+* **Custom CSS** for styling
+* **Fetch API / Axios** for backend communication
+* **Vercel** for hosting
 
 ---
 
-## 🔥 Core Features
+## 🔧 Environment Variables (Vercel)
 
-* Create short URLs (with optional custom code)
-* 302 redirect (`/:code`)
-* Click tracking (total + last clicked)
-* Delete links
-* Dashboard `/`
-* Stats page `/code/:code`
-* Health check `/healthz`
+Add this in Vercel → Project Settings → Environment Variables:
 
----
-
-## 📌 Environment Variables
-
-### Backend — `application.properties`
-
-```properties
-spring.application.name=TinyLink-Backend
-
-spring.datasource.url=${DB_URL}
-spring.datasource.username=${DB_USERNAME}
-spring.datasource.password=${DB_PASSWORD}
-server.port=${PORT:8080}
-
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
+```
+VITE_API_BASE_URL=https://your-backend-railway-url
 ```
 
-### Railway Environment Variables
+This is used for all API calls such as:
 
-* `DB_URL` — MySQL JDBC URL
-* `DB_USERNAME`
-* `DB_PASSWORD`
-* `SPRING_PROFILES_ACTIVE` - deploy  (MUST NEED TO CREATE)
-
----
-
-## 🧾 API Endpoints
-
-* **POST** `/api/links` — Create link
-* **GET** `/api/links` — List all
-* **GET** `/api/links/:code` — Stats for code
-* **DELETE** `/api/links/:code` — Delete
-* **GET** `/:code` — Redirect (302)
-* **GET** `/healthz` — Health check
+* `/api/links`
+* `/api/links/:code`
+* `/code/:code`
 
 ---
 
-## 🚀 Deployment Notes
+## 🧠 Pages Overview
 
-### Backend (Railway)
+### `/` — Dashboard
 
-* Create a **MySQL database** inside Railway
-* Copy credentials into ENV vars
-* Deploy via GitHub → Railway auto-deploy
+* Add new short links
+* View table of all links
+* Delete links
 
-### Frontend (Vercel)
+### `/code/:code` — Stats Page
 
-* Connect GitHub → Auto deploy
-* Add ENV var `VITE_API_BASE_URL`
+* Shows click count
+* Shows last clicked time
+* Shows full target URL
+
+### `*` — NotFound Page
+
+* Handles invalid URLs
+
+---
+
+## 🚀 Deploying to Vercel
+
+1. Push your frontend code to GitHub
+2. Go to **Vercel → New Project**
+3. Select the GitHub repo
+```
+
+5. Deploy → Vercel gives a Live URL
+
+---
+
+## 🧾 API Communication
+
+Frontend interacts with the backend:
+
+* `POST /api/links` — Create link
+* `GET /api/links` — Get all links
+* `GET /api/links/:code` — Get stats
+* `DELETE /api/links/:code` — Delete
+
+
+---
+
+## 📦 GitHub Repository
+
+* **FullStack Repo:** [https://github.com/aniket-soni03/TinyLink.git](https://github.com/aniket-soni03/TinyLink.git)
 
 ---
 
