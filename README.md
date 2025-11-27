@@ -1,6 +1,6 @@
 # 🔗 TinyLink – URL Shortener (Spring Boot + React)
 
-A clean, production-ready URL Shortener built using **Spring Boot** (Backend) and **React** (Frontend). Deployed on **Railway** (Backend + MySQL DB) and **Vercel** (Frontend). 🚀
+A clean, production-ready URL Shortener built using **Spring Boot** (Backend) and **React** (Frontend + Vite). Deployed on **Railway** (Backend + MySQL DB) and **Vercel** (Frontend). 🚀
 
 ---
 
@@ -106,7 +106,7 @@ src/
 * **MySQL (Railway)**
 * Spring Data JPA + Hibernate
 * Custom Exception Handling
-* CORS Config to allow Vercel
+* CORS Config for Vercel
 
 **Frontend:**
 
@@ -150,7 +150,21 @@ spring.jpa.show-sql=true
 * `DB_URL` — MySQL JDBC URL
 * `DB_USERNAME`
 * `DB_PASSWORD`
-* `SPRING_PROFILES_ACTIVE` - deploy  (MUST NEED TO CREATE)
+* `SPRING_PROFILES_ACTIVE` — deploy (**MUST NEED TO CREATE**)
+
+⚠️ **Important Note:**
+I have used **two application.properties files**:
+
+1. `application.properties` — used for **local development**
+2. `application-deploy.properties` — used for **Railway production deployment**
+
+You **must** set:
+
+```
+SPRING_PROFILES_ACTIVE=deploy
+```
+
+Otherwise Railway will load the local config and try connecting to **localhost MySQL**, causing connection failure.
 
 ---
 
@@ -176,7 +190,6 @@ spring.jpa.show-sql=true
 ### Frontend (Vercel)
 
 * Connect GitHub → Auto deploy
-* Add ENV var `VITE_API_BASE_URL`
 
 ---
 
